@@ -1,0 +1,12 @@
+---
+
+pyenv_repo_url: https://github.com/pyenv/pyenv.git
+
+python_dependencies:
+  - gcc
+  - make
+  - zlib-devel
+  - openssl-devel
+  - bzip2-devel
+  - sqlite-devel
+  - readline-devel

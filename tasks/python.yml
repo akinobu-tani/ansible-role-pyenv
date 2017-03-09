@@ -1,0 +1,12 @@
+---
+
+- name: install python
+  shell: >
+    source {{pyenv_profile_path}} &&
+    if ! pyenv versions | awk '{print $1$2}' | grep -E '^\*?{{version}}$'; then
+      pyenv install {{version}} && echo -e \\nchanged
+    fi
+  args:
+    executable: /bin/bash
+  register: result
+  changed_when: "'changed' in result.stdout_lines"

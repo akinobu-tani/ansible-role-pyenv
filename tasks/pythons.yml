@@ -1,0 +1,14 @@
+---
+
+- name: install dependencies
+  become: yes
+  yum: name={{item}}
+  with_items:
+    - "{{ python_dependencies }}"
+  when: python_versions|length > 0
+
+- name: install pythons
+  include: python.yml
+  with_items: "{{python_versions}}"
+  loop_control:
+    loop_var: version

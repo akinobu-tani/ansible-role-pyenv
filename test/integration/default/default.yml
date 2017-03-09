@@ -1,0 +1,9 @@
+---
+
+- hosts: localhost
+  roles:
+    - ansible-role-pyenv
+  vars:
+    python_versions:
+      - 3.6.0
+      - 2.7.13

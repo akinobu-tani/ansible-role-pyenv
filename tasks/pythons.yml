@@ -12,3 +12,15 @@
   with_items: "{{python_versions}}"
   loop_control:
     loop_var: version
+
+- name: set to global version
+  shell: >
+    source {{pyenv_profile_path}} &&
+    if ! pyenv version | grep -Eq '^{{python_global_version}} '; then
+      pyenv global {{python_global_version}} && echo -e \\nchanged
+    fi
+  args:
+    executable: /bin/bash
+  register: result
+  changed_when: "'changed' in result.stdout_lines"
+  when: python_global_version is defined

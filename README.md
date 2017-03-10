@@ -24,6 +24,8 @@ python_versions:
   - 3.6.0
   - 2.7.13
 
+python_global_version: 3.6.0
+
 pyenv_install_path: $HOME/.pyenv
 pyenv_profile_path: $HOME/.bash_profile
 ```
@@ -42,6 +44,7 @@ Example Playbook
     python_versions:
       - 3.6.0
       - 2.7.13
+    python_global_version: 3.6.0
   roles:
     - ansible-role-pyenv
 ```
